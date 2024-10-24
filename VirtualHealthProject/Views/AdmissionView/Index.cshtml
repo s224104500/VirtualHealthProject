@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VirtualHealthProject.Models.AdmissionViewModel>
+
+@{
+    ViewBag.Title = "Admissions";
+    Layout = "_AdminLayout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <h1 class="mb-4 text-center">Admissions</h1>
+</head>
+<body>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>PatientID</th>
+                <th>Patient Name</th>
+                <th>Admission Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var admit in Model)
+                {
+                    <tr>
+                        <td>@admit.PatientID</td>
+                        <td>@admit.PatientName</td>
+                        <td>@admit.AdmissionDate.ToString("g")</td>
+                        <td>@admit.Status</td>
+                               
+                       
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
+
